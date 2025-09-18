@@ -5,18 +5,21 @@
 }
 
 :root {
-    --primary-color: #5c4cdb;
-    --primary-hover: #4a3bc9;
-    --secondary-color: #f7f7fc;
-    --text-primary: #2a2a3e;
-    --text-secondary: #6b6b7b;
-    --border-color: #e5e5f0;
-    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --primary-color: #dc2626;
+    --primary-hover: #b91c1c;
+    --secondary-color: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --border-color: #374151;
+    --background-dark: #000000;
+    --background-light: #111111;
+    --gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: var(--background-dark);
     min-height: 100vh;
     color: var(--text-primary);
 }
@@ -29,7 +32,7 @@ body {
 
 /* Header */
 header {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     padding: 1.5rem 0;
@@ -128,10 +131,11 @@ main {
 
 /* Upload Area */
 .upload-container {
-    background: white;
+    background: var(--background-light);
     border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 60px rgba(220, 38, 38, 0.1);
+    border: 1px solid var(--border-color);
 }
 
 .upload-area {
@@ -141,12 +145,13 @@ main {
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: var(--secondary-color);
+    background: var(--background-dark);
 }
 
 .upload-area:hover {
     border-color: var(--primary-color);
-    background: #f0efff;
+    background: rgba(220, 38, 38, 0.05);
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.1);
 }
 
 .upload-icon {
@@ -187,47 +192,14 @@ main {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(92, 76, 219, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
 }
 
 .upload-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(92, 76, 219, 0.4);
-}
-
-/* Footer */
-footer {
-    background: white;
-    border-top: 1px solid var(--border-color);
-    padding: 2rem 0;
-    margin-top: 4rem;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-text {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.footer-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.footer-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
+    background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
 }
 
 /* Download Page */
@@ -240,10 +212,11 @@ footer {
 }
 
 .download-container {
-    background: white;
+    background: var(--background-light);
     border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 60px rgba(220, 38, 38, 0.1);
+    border: 1px solid var(--border-color);
     max-width: 600px;
     width: 100%;
 }
@@ -295,13 +268,15 @@ footer {
     align-items: center;
     padding: 1rem;
     margin: 0.5rem 0;
-    background: var(--secondary-color);
+    background: var(--background-dark);
     border-radius: 10px;
     transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .file-item:hover {
-    background: #f0efff;
+    border-color: var(--primary-color);
+    background: rgba(220, 38, 38, 0.05);
     transform: translateX(5px);
 }
 
@@ -314,12 +289,12 @@ footer {
 .file-icon {
     width: 40px;
     height: 40px;
-    background: white;
+    background: var(--secondary-color);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
 }
 
 .file-icon svg {
@@ -360,6 +335,7 @@ footer {
 
 .download-file-button:hover {
     background: var(--primary-color);
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
 }
 
 .download-file-button svg {
@@ -383,13 +359,14 @@ footer {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(92, 76, 219, 0.3);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
     margin: 2rem 0;
 }
 
 .download-all-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(92, 76, 219, 0.4);
+    background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
 }
 
 .share-section {
@@ -411,15 +388,15 @@ footer {
 .share-link-input {
     flex: 1;
     padding: 0.75rem;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 0.9rem;
     color: var(--text-secondary);
-    background: var(--secondary-color);
+    background: var(--background-dark);
 }
 
 .copy-link-button {
-    background: white;
+    background: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     padding: 0.75rem 1.5rem;
@@ -432,6 +409,41 @@ footer {
 .copy-link-button:hover {
     background: var(--primary-color);
     color: white;
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+}
+
+/* Footer */
+footer {
+    background: var(--background-light);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
 }
 
 /* Responsive */
