@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Files - tndTransfer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">tndTransfer</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="#">How it works</a>
+                <a href="#">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="download-page">
+            <div class="download-container">
+                <div class="download-header">
+                    <div class="download-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                        </svg>
+                    </div>
+                    <h1>Your files are ready!</h1>
+                    <p class="download-subtitle">3 files • 125 MB • Expires in 6 days</p>
+                </div>
+
+                <div class="file-list">
+                    <div class="file-item">
+                        <div class="file-info">
+                            <div class="file-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"/>
+                                </svg>
+                            </div>
+                            <div class="file-details">
+                                <span class="file-name">document.pdf</span>
+                                <span class="file-size">45 MB</span>
+                            </div>
+                        </div>
+                        <button class="download-file-button">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="file-item">
+                        <div class="file-info">
+                            <div class="file-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"/>
+                                </svg>
+                            </div>
+                            <div class="file-details">
+                                <span class="file-name">presentation.pptx</span>
+                                <span class="file-size">60 MB</span>
+                            </div>
+                        </div>
+                        <button class="download-file-button">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="file-item">
+                        <div class="file-info">
+                            <div class="file-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"/>
+                                </svg>
+                            </div>
+                            <div class="file-details">
+                                <span class="file-name">data.xlsx</span>
+                                <span class="file-size">20 MB</span>
+                            </div>
+                        </div>
+                        <button class="download-file-button">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="download-all-button">
+                    Download all files
+                </button>
+
+                <div class="share-section">
+                    <p>Share this link:</p>
+                    <div class="share-link-container">
+                        <input type="text" class="share-link-input" value="https://tndtransfer.com/d/abc123xyz" readonly>
+                        <button class="copy-link-button">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-text">
+                © 2025 tndTransfer - Simple file sharing done right
+            </div>
+            <div class="footer-links">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
