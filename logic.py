@@ -54,11 +54,58 @@ class S3Uploader:
                 relative_path = file.relative_to(folder)
                 print(str(s3_folder) + str(relative_path))
                 self.upload_file(str(file), str(s3_folder) + str(relative_path))
-            return True
+            return True, s3_folder
         except ClientError as e:
             print(f"Error uploading folder: {e}")
             return False
+        
+    def create_presigned_urls_for_folder(self, bucket_name, folder_prefix, expiration=259200):
+        """
+        Create presigned URLs for all files in an S3 folder
+        
+        Args:
+            bucket_name (str): Name of the S3 bucket
+            folder_prefix (str): Folder path (e.g., 'my-folder/' or 'path/to/folder/')
+            expiration (int): URL expiration time in seconds (default: 3 days)
+        
+        Returns:
+            dict: Dictionary with file keys and their presigned URLs
+        """
+        presigned_urls = {}
+        
+        try:
+            response = self.s3_client.list_objects_v2(Bucket=bucket_name, Prefix=folder_prefix)
+            
+            if 'Contents' not in response:
+                print(f"No files found in folder {folder_prefix}")
+                return presigned_urls
+            
+            for file in response['Contents']:
+                file_key = file['Key']
+                print(file_key)
+                
+                if file_key.endswith('/'):
+                    continue  # Skip folders
+                
+                try:
+                    presigned_url = self.s3_client.generate_presigned_url(
+                        'get_object',
+                        Params={'Bucket': bucket_name, 'Key': file_key},
+                        ExpiresIn=expiration
+                    )
+                    presigned_urls[file_key] = presigned_url
+                except ClientError as e:
+                    print(f"Error generating presigned URL for {file_key}: {e}")
+                
+        except ClientError as e:
+            print(f"Error listing objects: {e}")
+        
+        return presigned_urls
+
 
 
 uploader = S3Uploader()
-print(uploader.upload_folder('./templates'))
+handler = uploader.upload_folder('./templates')
+uuid = handler[1]
+
+print(uploader.create_presigned_urls_for_folder(bucket_name, uuid))
