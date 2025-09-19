@@ -1,6 +1,8 @@
 import boto3
 import sys
 import os
+import uuid
+
 from pathlib import Path
 from botocore.exceptions import ClientError
 
@@ -45,10 +47,13 @@ class S3Uploader:
         folder = Path(folder_path)
         files = [f for f in folder.rglob('*') if f.is_file()]
         
+        s3_folder = str(uuid.uuid4()) + '/'
+        
         try:
             for file in files:
                 relative_path = file.relative_to(folder)
-                self.upload_file(str(file))
+                print(str(s3_folder) + str(relative_path))
+                self.upload_file(str(file), str(s3_folder) + str(relative_path))
             return True
         except ClientError as e:
             print(f"Error uploading folder: {e}")
